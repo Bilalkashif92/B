@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collections | BK Threads</title>
+    <meta name="description" content="Browse our premium collections - BK Threads offers luxury clothing with sustainable materials">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="css/main.css" as="style">
+    <link rel="preload" href="js/main.js" as="script">
+    <link rel="preload" href="js/product-filter.js" as="script">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/utilities.css">
+    <link rel="stylesheet" href="css/animations.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Accessibility Skip Navigation -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header__logo">
+                <a href="index.html" aria-label="BK Threads Home">
+                    <span class="logo-text">BK</span>
+                    <span class="logo-subtext">THREADS</span>
+                </a>
+            </div>
+            
+            <nav class="header__nav" aria-label="Main navigation">
+                <ul class="nav-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html" class="active">Collections</a></li>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header__actions">
+                <button class="btn-icon" aria-label="Search">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="btn-icon" aria-label="Account">
+                    <i class="fas fa-user"></i>
+                </button>
+                <button class="btn-icon cart-btn" aria-label="Cart" data-cart-count="0">
+                    <i class="fas fa-shopping-bag"></i>
+                </button>
+                
+                <button class="btn-menu" aria-label="Toggle menu" aria-expanded="false">
+                    <span class="menu-line"></span>
+                    <span class="menu-line"></span>
+                    <span class="menu-line"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <nav aria-label="Mobile navigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html" class="active">Collections</a></li>
+                <li><a href="about.html">Our Story</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+    
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Products Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <h1 class="page-hero__title">Our Collections</h1>
+                <p class="page-hero__subtitle">Premium fabrics, timeless designs</p>
+            </div>
+        </section>
+        
+        <!-- Products Section -->
+        <section class="section products-section">
+            <div class="container">
+                <div class="products-filter">
+                    <div class="filter-group">
+                        <button class="filter-btn active" data-filter="all">All Products</button>
+                        <button class="filter-btn" data-filter="suits">Suits</button>
+                        <button class="filter-btn" data-filter="shirts">Shirts</button>
+                        <button class="filter-btn" data-filter="accessories">Accessories</button>
+                    </div>
+                    
+                    <div class="sort-group">
+                        <label for="sort">Sort by:</label>
+                        <select id="sort" class="sort-select">
+                            <option value="featured">Featured</option>
+                            <option value="price-asc">Price: Low to High</option>
+                            <option value="price-desc">Price: High to Low</option>
+                            <option value="newest">Newest</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="products-grid">
+                    <!-- Product 1 -->
+                    <article class="product-card" data-category="suits" data-price="599" data-date="2023-10-15">
+                        <div class="product-image">
+                            <img src="images/2989.webp" alt="Premium Navy Suit" loading="lazy">
+                            <div class="product-badge">Bestseller</div>
+                            <button class="btn-quick-view" aria-label="Quick view">
+                                <i class="far fa-eye"></i>
+                                <span class="tooltip">Quick View</span>
+                              </button>
+                        </div>
+                        <div class="product-details">
+                            <h3 class="product-title">Navy Peak Lapel Suit</h3>
+                            <p class="product-description">Italian wool with satin lapel</p>
+                            <div class="product-price">$599.00</div>
+                            <button class="btn btn-outline add-to-cart">Add to Cart</button>
+                        </div>
+                    </article>
+                    
+                    <!-- Product 2 -->
+                    <article class="product-card" data-category="suits" data-price="549" data-date="2023-09-20">
+                        <div class="product-image">
+                            <img src="images/2989.webp" alt="Charcoal Grey Suit" loading="lazy">
+                            <button class="btn-quick-view" aria-label="Quick view">
+                                <i class="far fa-eye"></i>
+                                <span class="tooltip">Quick View</span>
+                              </button>
+                        </div>
+                        <div class="product-details">
+                            <h3 class="product-title">Charcoal Grey Suit</h3>
+                            <p class="product-description">Super 120s wool with notch lapel</p>
+                            <div class="product-price">$549.00</div>
+                            <button class="btn btn-outline add-to-cart">Add to Cart</button>
+                        </div>
+                    </article>
+                    
+                    <!-- Product 3 -->
+                    <article class="product-card" data-category="shirts" data-price="129" data-date="2023-11-05">
+                        <div class="product-image">
+                            <img src="images/2989.webp" alt="White Dress Shirt" loading="lazy">
+                            <div class="product-badge">New</div>
+                            <button class="btn-quick-view" aria-label="Quick view">
+                                <i class="far fa-eye"></i>
+                                <span class="tooltip">Quick View</span>
+                              </button>
+                        </div>
+                        <div class="product-details">
+                            <h3 class="product-title">White Premium Dress Shirt</h3>
+                            <p class="product-description">Egyptian cotton with french cuffs</p>
+                            <div class="product-price">$129.00</div>
+                            <button class="btn btn-outline add-to-cart">Add to Cart</button>
+                        </div>
+                    </article>
+                    
+                    <!-- Product 4 -->
+                    <article class="product-card" data-category="shirts" data-price="119" data-date="2023-08-12">
+                        <div class="product-image">
+                            <img src="images/2989.webp" alt="Blue Casual Shirt" loading="lazy">
+                            <button class="btn-quick-view" aria-label="Quick view">
+                                <i class="far fa-eye"></i>
+                                <span class="tooltip">Quick View</span>
+                              </button>
+                        </div>
+                        <div class="product-details">
+                            <h3 class="product-title">Blue Casual Shirt</h3>
+                            <p class="product-description">Linen-cotton blend for all seasons</p>
+                            <div class="product-price">$119.00</div>
+                            <button class="btn btn-outline add-to-cart">Add to Cart</button>
+                        </div>
+                    </article>
+                    
+                    <!-- Product 5 -->
+                    <article class="product-card" data-category="accessories" data-price="89" data-date="2023-10-30">
+                        <div class="product-image">
+                            <img src="images/2989.webp" alt="Silk Necktie" loading="lazy">
+                            <button class="btn-quick-view" aria-label="Quick view">
+                                <i class="far fa-eye"></i>
+                                <span class="tooltip">Quick View</span>
+                              </button>
+                        </div>
+                        <div class="product-details">
+                            <h3 class="product-title">Silk Jacquard Necktie</h3>
+                            <p class="product-description">Hand-rolled edges, 100% silk</p>
+                            <div class="product-price">$89.00</div>
+                            <button class="btn btn-outline add-to-cart">Add to Cart</button>
+                        </div>
+                    </article>
+                    
+                    <!-- Product 6 -->
+                    <article class="product-card" data-category="accessories" data-price="65" data-date="2023-11-15">
+                        <div class="product-image">
+                            <img src="images/2989.webp" alt="Linen Pocket Square" loading="lazy">
+                            <div class="product-badge">New</div>
+                            <button class="btn-quick-view" aria-label="Quick view">
+                                <i class="far fa-eye"></i>
+                                <span class="tooltip">Quick View</span>
+                              </button>
+                        </div>
+                        <div class="product-details">
+                            <h3 class="product-title">Linen Pocket Square</h3>
+                            <p class="product-description">Hand-stitched edges, premium linen</p>
+                            <div class="product-price">$65.00</div>
+                            <button class="btn btn-outline add-to-cart">Add to Cart</button>
+                        </div>
+                    </article>
+                </div>
+                
+                <div class="pagination">
+                    <button class="btn btn-outline" disabled>Previous</button>
+                    <button class="btn btn-outline active">1</button>
+                    <button class="btn btn-outline">2</button>
+                    <button class="btn btn-outline">3</button>
+                    <button class="btn btn-outline">Next</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <!-- Same footer as index.html -->
+    </footer>
+    
+    <!-- Cart Drawer -->
+    <div class="cart-drawer">
+        <!-- Same cart drawer as index.html -->
+    </div>
+    
+    <!-- Overlay -->
+    <div class="overlay"></div>
+    
+    <!-- JavaScript -->
+    <script src="js/main.js" defer></script>
+    <script src="js/cart.js" defer></script>
+    <script src="js/product-filter.js" defer></script>
+</body>
+</html>
