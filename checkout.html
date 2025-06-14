@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/checkout.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Checkout</h1>
+        
+        <div class="checkout-grid">
+            <div class="checkout-left">
+                <!-- Customer Information -->
+                <section class="checkout-section">
+                    <h2>Customer Information</h2>
+                    <form id="customer-info-form">
+                        <div class="form-group">
+                            <label for="email">Email address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="input-row">
+                            <div class="form-group">
+                                <label for="first-name">First name</label>
+                                <input type="text" id="first-name" name="first-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="last-name">Last name</label>
+                                <input type="text" id="last-name" name="last-name" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone number</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                    </form>
+                </section>
+                
+                <!-- Shipping Address -->
+                <section class="checkout-section">
+                    <h2>Shipping Address</h2>
+                    <form id="shipping-address-form">
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <input type="text" id="address" name="address" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="apartment">Apartment, suite, etc. (optional)</label>
+                            <input type="text" id="apartment" name="apartment">
+                        </div>
+                        
+                        <div class="input-row">
+                            <div class="form-group">
+                                <label for="city">City</label>
+                                <input type="text" id="city" name="city" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="country">Country</label>
+                                <select id="country" name="country" required>
+                                    <option value="">Select country</option>
+                                    <option value="US">United States</option>
+                                    <option value="CA">Canada</option>
+                                    <option value="UK">United Kingdom</option>
+                                    <option value="AU">Australia</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="input-row">
+                            <div class="form-group">
+                                <label for="state">State/Province</label>
+                                <input type="text" id="state" name="state" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="zip">ZIP/Postal code</label>
+                                <input type="text" id="zip" name="zip" required>
+                            </div>
+                        </div>
+                    </form>
+                </section>
+                
+                <!-- Payment Method -->
+                <section class="checkout-section">
+                    <h2>Payment Method</h2>
+                    <div class="payment-methods">
+                        <div class="payment-method active" data-method="card">
+                            <input type="radio" name="payment-method" id="card-payment" checked>
+                            <div class="icon">
+                                <i class="far fa-credit-card"></i>
+                            </div>
+                            <div class="content">
+                                <h4>Credit/Debit Card</h4>
+                                <p>Pay securely with your Visa, Mastercard, or other credit card</p>
+                                <div class="card-icons">
+                                    <i class="fab fa-cc-visa"></i>
+                                    <i class="fab fa-cc-mastercard"></i>
+                                    <i class="fab fa-cc-amex"></i>
+                                    <i class="fab fa-cc-discover"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="payment-method" data-method="cod">
+                            <input type="radio" name="payment-method" id="cod-payment">
+                            <div class="icon">
+                                <i class="fas fa-money-bill-wave"></i>
+                            </div>
+                            <div class="content">
+                                <h4>Cash on Delivery</h4>
+                                <p>Pay with cash when your order is delivered</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card Payment Form (shown by default) -->
+                    <div id="card-payment-form">
+                        <form id="credit-card-form">
+                            <div class="form-group">
+                                <label for="card-number">Card number</label>
+                                <input type="text" id="card-number" name="card-number" placeholder="1234 5678 9012 3456" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="card-name">Name on card</label>
+                                <input type="text" id="card-name" name="card-name" required>
+                            </div>
+                            
+                            <div class="input-row">
+                                <div class="form-group">
+                                    <label for="expiry-date">Expiry date</label>
+                                    <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/YY" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cvv">CVV</label>
+                                    <input type="text" id="cvv" name="cvv" placeholder="123" required>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <!-- Cash on Delivery Message (hidden by default) -->
+                    <div id="cod-message" class="hidden">
+                        <div class="form-group">
+                            <p>You'll pay with cash when your order arrives. Please have the exact amount ready.</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            
+            <div class="checkout-right">
+                <!-- Order Summary -->
+                <section class="checkout-section">
+                    <h2>Order Summary</h2>
+                    
+                    <div class="cart-items">
+                        <div class="cart-item">
+                            <img src="https://via.placeholder.com/80" alt="Product" class="cart-item-image">
+                            <div class="cart-item-details">
+                                <h4 class="cart-item-title">Premium Product</h4>
+                                <div class="cart-item-quantity">Qty: 1</div>
+                                <div class="cart-item-price">$49.99</div>
+                            </div>
+                        </div>
+                        
+                        <div class="cart-item">
+                            <img src="https://via.placeholder.com/80" alt="Product" class="cart-item-image">
+                            <div class="cart-item-details">
+                                <h4 class="cart-item-title">Basic Product</h4>
+                                <div class="cart-item-quantity">Qty: 2</div>
+                                <div class="cart-item-price">$29.99</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="discount-code">
+                        <input type="text" placeholder="Discount code">
+                        <button type="button" class="btn">Apply</button>
+                    </div>
+                    
+                    <div class="order-summary">
+                        <div class="order-summary-item">
+                            <span>Subtotal</span>
+                            <span>$109.97</span>
+                        </div>
+                        <div class="order-summary-item">
+                            <span>Shipping</span>
+                            <span>$5.99</span>
+                        </div>
+                        <div class="order-summary-item">
+                            <span>Tax</span>
+                            <span>$8.25</span>
+                        </div>
+                        <div class="order-summary-item total">
+                            <span>Total</span>
+                            <span>$124.21</span>
+                        </div>
+                    </div>
+                    
+                    <button type="button" class="btn" id="place-order-btn">
+                        <i class="fas fa-lock"></i> Place Order
+                    </button>
+                    
+                    <p style="text-align: center; margin-top: 1rem; font-size: 0.8rem; color: #666;">
+                        <i class="fas fa-lock"></i> Secure checkout
+                    </p>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add this just before the closing </body> tag in your checkout page -->
+<div class="confirmation-overlay" id="confirmationOverlay">
+    <div class="confirmation-card">
+        <div class="confirmation-icon">
+            <i class="fas fa-check-circle"></i>
+        </div>
+        <h2 class="confirmation-title">Order Confirmed!</h2>
+        <p class="confirmation-message">Thank you for your purchase. Your order has been received and is being processed.</p>
+        
+        <div class="order-details">
+            <div class="order-detail-item">
+                <span class="order-detail-label">Order Number:</span>
+                <span class="order-detail-value">#ORD-<span id="orderNumber"></span></span>
+            </div>
+            <div class="order-detail-item">
+                <span class="order-detail-label">Date:</span>
+                <span class="order-detail-value" id="confirmationDate"></span>
+            </div>
+            <div class="order-detail-item">
+                <span class="order-detail-label">Total:</span>
+                <span class="order-detail-value">$<span id="orderTotal"></span></span>
+            </div>
+            <div class="order-detail-item">
+                <span class="order-detail-label">Payment Method:</span>
+                <span class="order-detail-value" id="confirmationPaymentMethod"></span>
+            </div>
+        </div>
+        
+        <p class="confirmation-message">A confirmation email has been sent to <strong id="confirmationEmail"></strong></p>
+        
+        <button class="confirmation-btn" id="confirmationCloseBtn">
+            Continue Shopping
+        </button>
+    </div>
+</div>
+    
+    <!-- JavaScript -->
+    <script src="js/checkout.js"></script>
+</body>
+</html>
