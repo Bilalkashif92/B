@@ -286,9 +286,16 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         if (customerFormValid && shippingFormValid && paymentFormValid) {
-            // Here you would typically submit the form to your server
-            alert('Order placed successfully!');
-            // window.location.href = '/order-confirmation';
+            // Get order details
+            const orderData = {
+                paymentMethod: document.querySelector('input[name="payment-method"]:checked').value === 'card' ? 'Credit Card' : 'Cash on Delivery',
+                email: document.getElementById('email').value,
+                orderNumber: Math.floor(Math.random() * 900000) + 100000, // generates random 6-digit number
+                total: document.querySelector('.order-total')?.textContent || '0.00' // Get from your total element
+            };
+            
+            // Show confirmation
+            showOrderConfirmation(orderData);
         }
     });
     
@@ -370,7 +377,21 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    function showOrderConfirmation(orderData) {
+    // Close confirmation handler
+    const closeBtn = document.getElementById('confirmationCloseBtn');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', function() {
+            const overlay = document.getElementById('confirmationOverlay');
+            if (overlay) {
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+                window.location.href = '/'; // Redirect after closing
+            }
+        });
+    }
+});
+
+function showOrderConfirmation(orderData) {
     const overlay = document.getElementById('confirmationOverlay');
     const paymentMethodEl = document.getElementById('confirmationPaymentMethod');
     const emailEl = document.getElementById('confirmationEmail');
@@ -378,15 +399,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const orderNumberEl = document.getElementById('orderNumber');
     const orderTotalEl = document.getElementById('orderTotal');
     
+    if (!overlay) return;
+    
     // Set dynamic values
-    paymentMethodEl.textContent = orderData.paymentMethod;
-    emailEl.textContent = orderData.email;
-    orderNumberEl.textContent = orderData.orderNumber;
-    orderTotalEl.textContent = orderData.total;
+    if (paymentMethodEl) paymentMethodEl.textContent = orderData.paymentMethod;
+    if (emailEl) emailEl.textContent = orderData.email;
+    if (orderNumberEl) orderNumberEl.textContent = orderData.orderNumber;
+    if (orderTotalEl) orderTotalEl.textContent = orderData.total;
     
     // Set current date
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    dateEl.textContent = new Date().toLocaleDateString(undefined, options);
+    if (dateEl) dateEl.textContent = new Date().toLocaleDateString(undefined, options);
     
     // Show overlay
     overlay.classList.add('active');
@@ -394,15 +417,3 @@ document.addEventListener('DOMContentLoaded', function() {
     // Disable scrolling
     document.body.style.overflow = 'hidden';
 }
-
-// Close confirmation
-document.getElementById('confirmationCloseBtn').addEventListener('click', function() {
-    const overlay = document.getElementById('confirmationOverlay');
-    overlay.classList.remove('active');
-    document.body.style.overflow = '';
-    
-    // Redirect to homepage or order history
-    window.location.href = '/'; // Change this to your desired URL
-});
-});
-
