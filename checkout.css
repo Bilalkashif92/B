@@ -298,6 +298,7 @@ input:focus, select:focus, textarea:focus {
         height: 60px;
     }
 }
+
 .confirmation-overlay {
     position: fixed;
     top: 0;
